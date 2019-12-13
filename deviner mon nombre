@@ -1,0 +1,31 @@
+###### Petit jeu
+ 
+from random import randint #importer la fonction randint, de la bibliothèque random, qui permet de generer un entier aléatoire 
+ 
+nombre_total_essais=5
+borne_sup=100
+borne_inf=1
+ 
+print("*****  Petit jeu permettant de deviner un nombre entre %d et %d en %d essais *****" %(borne_inf,borne_sup,nombre_total_essais))
+ 
+nbr_choisi=randint(1, 100) #generer un entier aléatoire entre 1 et 100
+nombre_essai=1
+ 
+while True:
+    print("Essai no %d" %nombre_essai)
+    print("Entrer un entier entre %d et %d" %(borne_inf,borne_sup))
+     
+    nombre_devine=int(input())
+    if nombre_devine==nbr_choisi:
+        print("Bravo! vous avez trouvé le nombre en %d essai"%nombre_essai)
+        break
+    elif nombre_devine < nbr_choisi:
+        print("Trés petit! choisir un autre plus grand")
+    else:
+        print("Trés grand! choisir un autre plus grand")
+         
+    if nombre_essai==nombre_total_essais: 
+        print("Game over!!! le nombre cherché etait %d"%nbr_choisi)
+        break
+         
+    nombre_essai+=1
