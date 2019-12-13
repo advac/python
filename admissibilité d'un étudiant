@@ -1,0 +1,12 @@
+nom = str(input("Veuillez entrez votre nom: "))
+
+note1 = float(input("Entrez la note 1: "))
+note2 = float(input("Entrez la note 2: "))
+note3 = float(input("Entrez la note 3: "))
+
+if (note1 > 9 and note2 > 9 and note3 > 9):
+  print("Vous êtes admis")
+elif ((note1+note2+note3)/3 >= 10):
+  print("Vous êtes admis")
+else:
+  print("refusé")
