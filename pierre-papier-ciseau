@@ -1,0 +1,77 @@
+import random
+import time
+
+pierre = 1
+papier = 2
+ciseau = 3
+
+noms = {pierre: "pierre", papier: "papier", ciseau: "ciseau"}
+regles = {pierre: ciseau, papier: pierre, ciseau: papier}
+
+score_joueur = 0
+score_ordinateur = 0
+
+
+def start():
+    print("C'est partie pour joueur à pierre, papier, ciseau!")
+    while jeu():
+        pass
+    score()
+
+
+def jeu():
+    joueur = action()
+    ordinateur = random.randint(1, 3)
+    resultat(joueur, ordinateur)
+    return jouer_encore()
+
+
+def action():
+    while True:
+        joueur = input("Pierre = 1\nPapier = 2\nCiseau = 3\nFaites un choix: ")
+        try:
+            joueur = int(joueur)
+            if joueur in (1, 2, 3):
+                return joueur
+        except ValueError:
+            pass
+        print("Oops! Je n'ai pas compris. Entrez 1 , 2 , 3.")
+
+
+def resultat(joueur, ordinateur):
+    print("1...")
+    time.sleep(1)
+    print("2...")
+    time.sleep(1)
+    print("3!")
+    time.sleep(0.5)
+    print("Ordinateur {0}!").format(noms[ordinateur])
+    global score_joueur, score_ordinateur
+    if joueur == ordinateur:
+        print("Egalité!")
+    else:
+        if regles[joueur] == ordinateur:
+            print("Vous avez gagné!")
+            score_joueur += 1
+        else:
+            print("Vous avez perdu")
+            score_ordinateur += 1
+
+
+def jouer_encore():
+    reponse = input("Voulez vous rejouer? O/N")
+    if reponse in ("o", "O", "oui"):
+        return reponse
+    else:
+        print("Merci d'avoir joueur")
+
+
+def score():
+    global score_joueur, score_ordinateur
+    print("RESULTATS")
+    print("Joueur: ", score_joueur)
+    print("Ordinateur: ", score_ordinateur)
+
+
+if __name__ == '__main__':
+    start()
