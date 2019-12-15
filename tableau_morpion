@@ -1,0 +1,21 @@
+# Tableau à deux dimensions / Morpion
+
+morpion = [['-', '-', '-'], ['-', '-', '-'], ['-', '-', '-']]
+
+
+def Afficher():  # define function
+    i = 0
+    while i < 3:
+        j = 0
+        while j < 3:
+            print(morpion[i][j], end="|")  # end permet d'avoir le morpion sur une ligne
+            j += 1
+
+        print()  # pour revenir à la ligne
+        i += 1
+
+
+Afficher()
+morpion[1][1] = "X"
+print()
+Afficher()
